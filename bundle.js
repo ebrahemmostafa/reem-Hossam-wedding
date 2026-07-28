@@ -22028,7 +22028,7 @@ function _F() {
                                 "aria-hidden": !0,
                               }),
                               p.jsx("span", {
-                                className: "text-[9px] leading-tight text-sage-dark/70 font-body tracking-[0.1em] uppercase",
+                                className: "text-[8px] leading-tight text-sage-dark/70 font-body tracking-[0.1em] uppercase",
                                 children: e,
                               }),
                             ],
