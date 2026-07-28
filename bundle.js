@@ -21828,6 +21828,19 @@ function xF({
               }),
             ],
           }),
+          p.jsxs("div", {
+            className: "w-full max-w-xs border-t border-sage/20 pt-4 pb-2 text-center",
+            children: [
+              p.jsx("p", {
+                className: "font-display text-sm tracking-[0.16em] uppercase text-[#a16d78]",
+                children: "Kids not allowed",
+              }),
+              p.jsx("p", {
+                className: "mt-1 text-xs text-sage-dark/60 font-body",
+                children: "An adults-only celebration. Thank you for understanding.",
+              }),
+            ],
+          }),
         ],
       }),
     ],
@@ -30726,12 +30739,8 @@ function cB() {
   const [e, t] = v.useState(!1),
     [n, r] = v.useState("yes"),
     [s, i] = v.useState(""),
-    [o, a] = v.useState(""),
-    [l, c] = v.useState(""),
-    [u, d] = v.useState(!1),
     [h, f] = v.useState([]),
     [x, g] = v.useState(""),
-    [b, m] = v.useState(""),
     [y, w] = v.useState(""),
     S = iB(),
     { toast: E } = Au(),
@@ -30752,10 +30761,6 @@ function cB() {
         E({ title: "Name required", description: "Please enter your full name.", variant: "destructive" });
         return;
       }
-      if (!o.trim()) {
-        E({ title: "Phone required", description: "Please enter a contact phone number.", variant: "destructive" });
-        return;
-      }
       if (n === "yes" && h.filter((D) => !D.name.trim()).length > 0) {
         E({ title: "Names required", description: "Please enter the name of all companions.", variant: "destructive" });
         return;
@@ -30763,14 +30768,10 @@ function cB() {
       try {
         (await S.mutateAsync({
           full_name: s.trim(),
-          phone: o.trim(),
           attendance: n,
           guest_count: 1 + h.length,
-          accommodation: (n === "yes" && l.trim()) || void 0,
-          needs_transport: n === "yes" ? u : !1,
           companions: h,
           song_request: (n === "yes" && x.trim()) || void 0,
-          dietary_requirements: (n === "yes" && b.trim()) || void 0,
           message: y.trim() || void 0,
         }),
           t(!0));
@@ -30779,8 +30780,7 @@ function cB() {
       }
     };
   if (e) return p.jsx(lB, { attendance: n });
-  const A = h.filter((N) => N.type === "adult").length,
-    $ = h.filter((N) => N.type === "child").length;
+  const A = h.length;
   return p.jsx("section", {
     id: "rsvp",
     className: "pt-8 pb-0 md:pt-10 md:pb-0 px-6",
@@ -30864,49 +30864,6 @@ function cB() {
             }),
             p.jsx(Hr, {
               children:
-                n === "yes" &&
-                p.jsxs(X.div, {
-                  initial: { opacity: 0, height: 0 },
-                  animate: { opacity: 1, height: "auto" },
-                  exit: { opacity: 0, height: 0 },
-                  transition: { duration: 0.3 },
-                  className: "overflow-hidden",
-                  children: [
-                    p.jsx(st, {
-                      htmlFor: "allergies",
-                      className: "text-sage-dark font-medium",
-                      children: "Allergies or dietary requirements",
-                    }),
-                    p.jsx(sn, {
-                      id: "allergies",
-                      value: b,
-                      onChange: (N) => m(N.target.value),
-                      className:
-                        "mt-2 bg-ivory border-sage/30 text-sage-dark placeholder:text-sage-dark/50 focus:border-sage-dark",
-                      placeholder: "e.g. gluten-free, lactose intolerant...",
-                      maxLength: 300,
-                    }),
-                  ],
-                }),
-            }),
-            p.jsxs("div", {
-              children: [
-                p.jsx(st, { htmlFor: "phone", className: "text-sage-dark font-medium", children: "Contact phone *" }),
-                p.jsx(sn, {
-                  id: "phone",
-                  type: "tel",
-                  required: !0,
-                  value: o,
-                  onChange: (N) => a(N.target.value),
-                  className:
-                    "mt-2 bg-ivory border-sage/30 text-sage-dark placeholder:text-sage-dark/50 focus:border-sage-dark",
-                  placeholder: "+44 7700 900000",
-                  maxLength: 20,
-                }),
-              ],
-            }),
-            p.jsx(Hr, {
-              children:
                 n === "no" &&
                 p.jsxs(X.div, {
                   initial: { opacity: 0, height: 0 },
@@ -30981,7 +30938,7 @@ function cB() {
                         p.jsx(st, { className: "text-sage-dark font-medium", children: "Companions" }),
                         p.jsx("p", {
                           className: "text-sm text-sage-dark/70 font-body",
-                          children: "Add the people joining you and note any allergies they may have.",
+                          children: "Add the adults joining you.",
                         }),
                         h.length > 0 &&
                           p.jsxs("div", {
@@ -30990,10 +30947,6 @@ function cB() {
                               p.jsxs("span", {
                                 className: "flex items-center gap-1",
                                 children: [p.jsx(qc, { className: "w-3 h-3" }), " ", A, " adult", A !== 1 ? "s" : ""],
-                              }),
-                              p.jsxs("span", {
-                                className: "flex items-center gap-1",
-                                children: [p.jsx(mf, { className: "w-3 h-3" }), " ", $, " child", $ !== 1 ? "ren" : ""],
                               }),
                             ],
                           }),
@@ -31011,10 +30964,8 @@ function cB() {
                                     p.jsxs("span", {
                                       className: "text-sm font-medium text-sage-dark flex items-center gap-2",
                                       children: [
-                                        N.type === "adult"
-                                          ? p.jsx(qc, { className: "w-4 h-4" })
-                                          : p.jsx(mf, { className: "w-4 h-4" }),
-                                        N.type === "adult" ? "Adult" : "Child",
+                                        p.jsx(qc, { className: "w-4 h-4" }),
+                                        "Adult",
                                       ],
                                     }),
                                     p.jsx("button", {
@@ -31034,74 +30985,18 @@ function cB() {
                                     "bg-white border-sage/30 text-sage-dark placeholder:text-sage-dark/50 focus:border-sage-dark",
                                   maxLength: 100,
                                 }),
-                                p.jsx(sn, {
-                                  value: N.allergies,
-                                  onChange: (D) => T(V, "allergies", D.target.value),
-                                  placeholder: "Allergies or dietary requirements (if any)",
-                                  className:
-                                    "bg-white border-sage/30 text-sage-dark placeholder:text-sage-dark/50 focus:border-sage-dark",
-                                  maxLength: 200,
-                                }),
                               ],
                             },
                             V,
                           ),
                         ),
-                        p.jsxs("div", {
-                          className: "flex gap-3",
-                          children: [
-                            p.jsxs(Bt, {
-                              type: "button",
-                              variant: "outline",
-                              size: "sm",
-                              onClick: () => _("adult"),
-                              className: "border-sage/40 text-sage-dark hover:bg-sage/10 gap-1",
-                              children: [p.jsx(Id, { className: "w-3 h-3" }), " Adult"],
-                            }),
-                            p.jsxs(Bt, {
-                              type: "button",
-                              variant: "outline",
-                              size: "sm",
-                              onClick: () => _("child"),
-                              className: "border-sage/40 text-sage-dark hover:bg-sage/10 gap-1",
-                              children: [p.jsx(Id, { className: "w-3 h-3" }), " Child"],
-                            }),
-                          ],
-                        }),
-                      ],
-                    }),
-                    p.jsxs("div", {
-                      className: "flex items-center space-x-3",
-                      children: [
-                        p.jsx(QC, {
-                          id: "transport",
-                          checked: u,
-                          onCheckedChange: (N) => d(N === !0),
-                          className:
-                            "border-sage-dark data-[state=checked]:bg-sage-dark data-[state=checked]:border-sage-dark",
-                        }),
-                        p.jsx(st, {
-                          htmlFor: "transport",
-                          className: "cursor-pointer text-sage-dark",
-                          children: "I need transport to the venue",
-                        }),
-                      ],
-                    }),
-                    p.jsxs("div", {
-                      children: [
-                        p.jsx(st, {
-                          htmlFor: "accommodation",
-                          className: "text-sage-dark font-medium",
-                          children: "Hotel / Accommodation / Area",
-                        }),
-                        p.jsx(sn, {
-                          id: "accommodation",
-                          value: l,
-                          onChange: (N) => c(N.target.value),
-                          className:
-                            "mt-2 bg-ivory border-sage/30 text-sage-dark placeholder:text-sage-dark/50 focus:border-sage-dark",
-                          placeholder: "e.g. Hotel Borgo Antico, Montalcino area...",
-                          maxLength: 200,
+                        p.jsxs(Bt, {
+                          type: "button",
+                          variant: "outline",
+                          size: "sm",
+                          onClick: () => _("adult"),
+                          className: "border-sage/40 text-sage-dark hover:bg-sage/10 gap-1",
+                          children: [p.jsx(Id, { className: "w-3 h-3" }), " Add adult"],
                         }),
                       ],
                     }),
@@ -31183,28 +31078,6 @@ function hB({ name1: e, name2: t, date: n }) {
             p.jsxs("p", { className: "font-script text-3xl text-sage-dark mt-2 mb-1", children: [e, " & ", t] }),
             p.jsx("p", { className: "text-sm text-sage-dark/80 font-body tracking-wide", children: r }),
             p.jsx("img", { src: uB, alt: "Ornament", className: "w-80 md:w-96 mx-auto mt-8" }),
-          ],
-        }),
-      }),
-      p.jsx("div", {
-        className: "py-4 text-center border-t border-sage/10",
-        style: { backgroundColor: "#f0e9e1" },
-        children: p.jsxs(X.p, {
-          initial: { opacity: 0 },
-          whileInView: { opacity: 1 },
-          viewport: { once: !0 },
-          transition: { duration: 0.8 },
-          className: "text-xs text-[#797f5c] font-body font-medium",
-          children: [
-            "Made with love by",
-            " ",
-            p.jsx("a", {
-              href: "https://thedigitalyes.com",
-              target: "_blank",
-              rel: "noopener noreferrer",
-              className: "underline hover:text-[#797f5c]/80 transition-colors font-semibold",
-              children: "The Digital Yes",
-            }),
           ],
         }),
       }),
@@ -31359,10 +31232,9 @@ const yB = "./assets/hero-illustration-BQEp2DxL.jpg",
   RB = "./assets/footer-bg-new-CQ33XzYQ.jpg",
   PB = "./assets/rings-illustration-LjMzScCM.png",
   AB = "./assets/monogram-mj-F-9vDsNY.png",
-  XC = "./assets/intro-music-CzqJOUtA.mp3",
   NB = [JC],
   jB = [yB, vB, wB, xB, bB, SB, A_, N_, EB, _B, CB, kB, gC, TB, RB, PB, AB],
-  OB = [YC, XC],
+  OB = [YC],
   IB = [P_];
 function _w(e) {
   const t = new Image();
@@ -31386,38 +31258,6 @@ const MB = () => {
   const { data: e } = gB();
   DB();
   const [t, n] = v.useState(!0),
-    [r, s] = v.useState(!1),
-    i = v.useRef(null);
-  (v.useEffect(() => {
-    i.current &&
-      ((i.current.volume = 0),
-      i.current
-        .play()
-        .then(() => {
-          let c = 0;
-          const u = setInterval(() => {
-            ((c += 0.017), c >= 0.5 ? ((i.current.volume = 0.5), clearInterval(u)) : (i.current.volume = c));
-          }, 100);
-        })
-        .catch(() => {}));
-  }, []),
-    v.useEffect(() => {
-      const c = () => {
-        i.current && (document.hidden ? i.current.pause() : r || i.current.play().catch(() => {}));
-      };
-      return (
-        document.addEventListener("visibilitychange", c),
-        () => {
-          document.removeEventListener("visibilitychange", c);
-        }
-      );
-    }, [r]));
-  const o = () => {
-      i.current && i.current.paused && i.current.play().catch(() => {});
-    },
-    a = () => {
-      i.current && ((i.current.muted = !i.current.muted), s(!r));
-    },
     l = e || {
       couple_name_1: "Hossam El-Din",
       couple_name_2: "Reem",
@@ -31430,15 +31270,7 @@ const MB = () => {
   return p.jsxs(p.Fragment, {
     children: [
       p.jsx(pB, {}),
-      p.jsx("audio", { ref: i, src: XC, preload: "auto", loop: !0 }),
-      p.jsx("button", {
-        onClick: a,
-        className:
-          "fixed bottom-6 right-6 z-50 p-3 rounded-full bg-primary/90 text-primary-foreground shadow-lg hover:bg-primary transition-all duration-300 backdrop-blur-sm",
-        "aria-label": r ? "Unmute" : "Mute",
-        children: r ? p.jsx(ZA, { size: 20 }) : p.jsx(XA, { size: 20 }),
-      }),
-      t && p.jsx(mB, { onEnter: () => n(!1), onInteraction: o }),
+      t && p.jsx(mB, { onEnter: () => n(!1) }),
       p.jsxs("main", {
         className: "bg-background",
         children: [
@@ -31461,7 +31293,6 @@ const MB = () => {
           p.jsx(EF, {}),
           p.jsx(_F, {}),
           p.jsx(T4, {}),
-          p.jsx(P4, { enabled: !0 }),
           p.jsx(cB, {}),
           p.jsx(hB, { name1: l.couple_name_1, name2: l.couple_name_2, date: l.wedding_date }),
         ],
