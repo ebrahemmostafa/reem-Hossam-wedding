@@ -15969,7 +15969,7 @@ function Qo(e) {
 }
 function bD(e) {
   let {
-    basename: t = "/new_prem3/",
+    basename: t = "/reem-Hossam-wedding/",
     children: n = null,
     location: r,
     navigationType: s = Ir.Pop,
