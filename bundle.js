@@ -21551,7 +21551,7 @@ const P_ = "./assets/hero-bg-l-slFnvE.mp4",
   fF = "./assets/hero-poster-DkA1j00-.jpg";
 function pF(e) {
   const [t, n, r] = e.split("-").map(Number);
-  return `${["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][n - 1]} ${r}, ${t}`;
+  return `${["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date(t, n - 1, r).getDay()]}, ${["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][n - 1]} ${r}, ${t}`;
 }
 function mF({ name1: e, name2: t, date: n, subtitle: r, paused: s }) {
   const i = pF(n);
@@ -21707,38 +21707,39 @@ Bt.displayName = "Button";
 const vF = "./assets/string-lights-DfoJYed-.png",
   wF = "./assets/ornate-badge-2PyCLI0e.png";
 function xF({
-  location: e = "Villa Montalcino",
+  location: e = "Sky Resort",
   address: t,
   mapsUrl: n,
   startTime: r = "17:00",
-  endTime: s = "02:00",
+  endTime: s = "21:00",
   weddingDate: i,
 }) {
-  const o = (c, u, d, h) => {
+  const o = (c, u, d, h, R) => {
       const [f, x, g] = h.split("-").map(Number),
         [b, m] = u.split(":").map(Number),
-        y = (R) => R.toString().padStart(2, "0"),
+        [S, E] = R.split(":").map(Number),
+        y = (P) => P.toString().padStart(2, "0"),
         w = `${f}${y(x)}${y(g)}T${y(b)}${y(m)}00`,
-        S = `${f}${y(x)}${y(g + 1)}T020000`,
-        E = [
+        P = `${f}${y(x)}${y(g + (S < b || (S === b && E <= m) ? 1 : 0))}T${y(S)}${y(E)}00`,
+        j = [
           "BEGIN:VCALENDAR",
           "VERSION:2.0",
           "PRODID:-//TheDigitalYes//Wedding//EN",
           "BEGIN:VEVENT",
-          `DTSTART;TZID=Europe/Rome:${w}`,
-          `DTEND;TZID=Europe/Rome:${S}`,
+          `DTSTART;TZID=Africa/Cairo:${w}`,
+          `DTEND;TZID=Africa/Cairo:${P}`,
           `SUMMARY:${c}`,
           `LOCATION:${d}`,
           "END:VEVENT",
           "END:VCALENDAR",
         ].join(`\r
 `),
-        _ = new Blob([E], { type: "text/calendar;charset=utf-8" }),
+        _ = new Blob([j], { type: "text/calendar;charset=utf-8" }),
         k = URL.createObjectURL(_),
         T = document.createElement("a");
       ((T.href = k), (T.download = "wedding.ics"), T.click(), URL.revokeObjectURL(k));
     },
-    a = e || "Villa Montalcino",
+    a = e || "Sky Resort",
     l = n || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a + (t ? ", " + t : ""))}`;
   return p.jsxs("section", {
     className: "bg-ivory",
@@ -21822,7 +21823,7 @@ function xF({
               p.jsxs(Bt, {
                 size: "sm",
                 className: "gap-2 bg-sage-dark text-white hover:bg-sage-dark/90 border-none",
-                onClick: () => o("Lucía & Felipe's Wedding", r, a, i),
+                onClick: () => o("Hossam El-Din & Reem's Wedding", r, t ? `${a}, ${t}` : a, i, s),
                 children: [p.jsx($A, { className: "w-4 h-4" }), "Calendar"],
               }),
             ],
@@ -21837,9 +21838,9 @@ const A_ = "./assets/couple-dancing-D8lPNoP4.png",
     { time: "17:00", title: "Arrival & Welcome Drinks", description: "Reception and welcome cocktails at the villa" },
     { time: "17:30", title: "Ceremony", description: "The most special moment of the day" },
     { time: "18:00", title: "Cocktail Hour & Dinner", description: "Al fresco dining under the stars" },
-    { time: "21:30", title: "Party", description: "Let's dance the night away!" },
+    { time: "20:00", title: "Party", description: "Let's dance the night away!" },
     {
-      time: "02:00",
+      time: "21:00",
       title: "Last Dance",
       description: `Farewell and
 beautiful memories`,
@@ -29714,7 +29715,7 @@ function P4({ enabled: e }) {
                                       children: "Beneficiary:",
                                     }),
                                     p.jsx("br", {}),
-                                    "Lucía & Felipe",
+                                    "Hossam El-Din & Reem",
                                   ],
                                 }),
                                 p.jsxs("div", {
@@ -30542,11 +30543,11 @@ function lB({ attendance: e }) {
         "VERSION:2.0",
         "PRODID:-//TheDigitalYes//Wedding//EN",
         "BEGIN:VEVENT",
-        "DTSTART;TZID=Europe/Rome:20270918T170000",
-        "DTEND;TZID=Europe/Rome:20270919T020000",
-        "SUMMARY:Lucía & Felipe's Wedding",
-        "LOCATION:Villa Montalcino, Tuscany",
-        "DESCRIPTION:Lucía & Felipe's Wedding Celebration",
+        "DTSTART;TZID=Africa/Cairo:20260828T170000",
+        "DTEND;TZID=Africa/Cairo:20260828T210000",
+        "SUMMARY:Hossam El-Din & Reem's Wedding",
+        "LOCATION:Sky Resort, 5th settlement, Cairo",
+        "DESCRIPTION:Hossam El-Din & Reem's Wedding Celebration",
         "END:VEVENT",
         "END:VCALENDAR",
       ].join(`\r
@@ -30554,7 +30555,7 @@ function lB({ attendance: e }) {
       c = new Blob([l], { type: "text/calendar;charset=utf-8" }),
       u = URL.createObjectURL(c),
       d = document.createElement("a");
-    ((d.href = u), (d.download = "wedding-lucia-felipe.ics"), d.click(), URL.revokeObjectURL(u));
+    ((d.href = u), (d.download = "wedding-hossam-el-din-reem.ics"), d.click(), URL.revokeObjectURL(u));
   };
   return e === "no"
     ? p.jsx("section", {
@@ -30571,7 +30572,7 @@ function lB({ attendance: e }) {
               className: "text-sage-dark/80 font-body text-lg leading-relaxed",
               children: "We're so sorry you can't join us. You'll be in our thoughts on this very special day.",
             }),
-            p.jsx("p", { className: "text-sage-dark/60 font-script text-2xl mt-8", children: "— Lucía & Felipe" }),
+            p.jsx("p", { className: "text-sage-dark/60 font-script text-2xl mt-8", children: "— Hossam El-Din & Reem" }),
           ],
         }),
       })
@@ -30613,7 +30614,7 @@ function lB({ attendance: e }) {
                         }),
                         p.jsx("p", {
                           className: "text-sage-dark/80 font-body text-base md:text-lg",
-                          children: "We look forward to seeing you on September 18th at Villa Montalcino.",
+                          children: "We look forward to seeing you on August 28th at Sky Resort.",
                         }),
                       ],
                     }),
@@ -30622,7 +30623,7 @@ function lB({ attendance: e }) {
                       animate: { opacity: 1 },
                       transition: { duration: 0.8, delay: 1.2 },
                       className: "text-sage-dark/60 font-script text-2xl md:text-3xl mt-10",
-                      children: "— Lucía & Felipe",
+                      children: "— Hossam El-Din & Reem",
                     }),
                     p.jsxs(X.div, {
                       initial: { opacity: 0, y: 20 },
@@ -31120,7 +31121,7 @@ function cB() {
 const uB = "./assets/footer-ornament-doM17sdI.png";
 function dB(e) {
   const [t, n, r] = e.split("-").map(Number);
-  return `${["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][n - 1]} ${r}, ${t}`;
+  return `${["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date(t, n - 1, r).getDay()]}, ${["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][n - 1]} ${r}, ${t}`;
 }
 function hB({ name1: e, name2: t, date: n }) {
   const r = dB(n);
@@ -31377,13 +31378,13 @@ const MB = () => {
       i.current && ((i.current.muted = !i.current.muted), s(!r));
     },
     l = e || {
-      couple_name_1: "Elisa",
-      couple_name_2: "Jhon",
-      wedding_date: "2027-09-18",
+      couple_name_1: "Hossam El-Din",
+      couple_name_2: "Reem",
+      wedding_date: "2026-08-28",
       hero_subtitle: "We are getting married",
-      banquet_location: "Villa Montalcino",
-      banquet_address: null,
-      banquet_maps_url: null,
+      banquet_location: "Sky Resort",
+      banquet_address: "5th settlement, Cairo",
+      banquet_maps_url: "https://share.google/4ueu1dobFlldAn374",
     };
   return p.jsxs(p.Fragment, {
     children: [
@@ -31413,7 +31414,7 @@ const MB = () => {
             address: l.banquet_address,
             mapsUrl: l.banquet_maps_url,
             startTime: "17:00",
-            endTime: "02:00",
+            endTime: "21:00",
             weddingDate: l.wedding_date,
           }),
           p.jsx(EF, {}),
