@@ -21981,7 +21981,48 @@ function _F() {
                     p.jsx("h3", { className: "font-display text-xl text-sage-dark mb-2", children: "Formal Attire" }),
                     p.jsx("p", {
                       className: "text-sage-dark/70 font-body leading-relaxed",
-                      children: "We kindly ask you to dress formally to join us on this very special day.",
+                      children: "We kindly ask you to dress formally in any shade from our celebration palette.",
+                    }),
+                  ],
+                }),
+                p.jsxs("div", {
+                  className: "border-t border-sage/15 pt-5",
+                  children: [
+                    p.jsx("p", {
+                      className: "text-[10px] text-sage-dark/60 font-body tracking-[0.2em] uppercase mb-4",
+                      children: "Celebration palette",
+                    }),
+                    p.jsx("div", {
+                      className: "grid grid-cols-4 sm:grid-cols-8 gap-x-3 gap-y-4",
+                      children: [
+                        ["Sage Green", "#a8a99a"],
+                        ["Dusty Rose", "#c99c99"],
+                        ["Lavender", "#a89aac"],
+                        ["Blush Pink", "#d3aaa4"],
+                        ["Powder Blue", "#aeb8ca"],
+                        ["Champagne Beige", "#cdbba8"],
+                        ["Soft Mint", "#bdc2bb"],
+                        ["Mauve", "#b7a1a1"],
+                      ].map(([e, t]) =>
+                        p.jsxs(
+                          "div",
+                          {
+                            className: "flex flex-col items-center gap-2",
+                            children: [
+                              p.jsx("span", {
+                                className: "w-10 h-10 rounded-full border border-black/5 shadow-sm",
+                                style: { backgroundColor: t },
+                                "aria-hidden": !0,
+                              }),
+                              p.jsx("span", {
+                                className: "text-[9px] leading-tight text-sage-dark/70 font-body tracking-[0.1em] uppercase",
+                                children: e,
+                              }),
+                            ],
+                          },
+                          e,
+                        ),
+                      ),
                     }),
                   ],
                 }),
