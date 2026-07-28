@@ -36,6 +36,39 @@
 
   <body style="overflow-x: hidden;">
     <div id="root"></div>
+    <audio id="background-music" loop preload="auto">
+      <source src="./assets/ahwak-piano.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-toggle" type="button" aria-label="Play background music" aria-pressed="false" title="Play background music">
+      <span aria-hidden="true">&#9835;</span>
+    </button>
+    <script>
+      (() => {
+        const music = document.getElementById('background-music');
+        const toggle = document.getElementById('music-toggle');
+
+        music.volume = 0.35;
+
+        const updateToggle = () => {
+          const isPlaying = !music.paused;
+          toggle.setAttribute('aria-pressed', String(isPlaying));
+          toggle.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+          toggle.title = isPlaying ? 'Pause background music' : 'Play background music';
+        };
+
+        const playMusic = () => music.play().then(updateToggle).catch(updateToggle);
+
+        toggle.addEventListener('click', () => {
+          if (music.paused) playMusic();
+          else music.pause();
+        });
+
+        music.addEventListener('play', updateToggle);
+        music.addEventListener('pause', updateToggle);
+        document.addEventListener('pointerdown', playMusic, { once: true });
+        playMusic();
+      })();
+    </script>
   </body>
 </html>
 
