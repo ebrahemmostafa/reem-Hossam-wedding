@@ -21855,6 +21855,7 @@ function xF({
 const A_ = "./assets/couple-dancing-D8lPNoP4.png";
 const N_ = "./assets/dress-code-illustration-Yae00T83.png";
 function _F() {
+  return null;
   return p.jsx("section", {
     className: "section-padding bg-ivory",
     children: p.jsxs("div", {
@@ -31151,7 +31152,7 @@ const MB = () => {
             endTime: "21:00",
             weddingDate: l.wedding_date,
           }),
-          p.jsx(_F, {}),
+          null,
           p.jsx(T4, {}),
           p.jsx(cB, {}),
           p.jsx(hB, { name1: "HossamEl-Din", name2: l.couple_name_2, date: l.wedding_date }),
