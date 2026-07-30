@@ -22017,21 +22017,15 @@ function _F() {
                         ["Soft Mint", "#bdc2bb"],
                         ["Mauve", "#b7a1a1"],
                       ].map(([e, t]) =>
-                        p.jsxs(
+                        p.jsx(
                           "div",
                           {
                             className: "flex flex-col items-center gap-2",
-                            children: [
-                              p.jsx("span", {
-                                className: "w-10 h-10 rounded-full border border-black/5 shadow-sm",
-                                style: { backgroundColor: t },
-                                "aria-hidden": !0,
-                              }),
-                              p.jsx("span", {
-                                className: "text-[8px] leading-tight text-sage-dark/70 font-body tracking-[0.1em] uppercase",
-                                children: e,
-                              }),
-                            ],
+                            children: p.jsx("span", {
+                              className: "w-10 h-10 rounded-full border border-black/5 shadow-sm",
+                              style: { backgroundColor: t },
+                              "aria-hidden": !0,
+                            }),
                           },
                           e,
                         ),
