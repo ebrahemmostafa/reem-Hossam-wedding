@@ -30,8 +30,11 @@
   <meta name="twitter:title" content="Hossam El-Din &amp; Reem">
   <meta property="og:description" content="Esta invitación es exclusivamente para ti | The Digital Yes">
   <meta name="twitter:description" content="Esta invitación es exclusivamente para ti | The Digital Yes">
-  <script type="module" crossorigin src="./bundle.js?v=20260730_6"></script>
-  <link rel="stylesheet" crossorigin href="./styles.css?v=20260730_6">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./bundle.js?v=20260730_7"></script>
+  <link rel="stylesheet" crossorigin href="./styles.css?v=20260730_7">
 <script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script><script defer src="/__l5e/events.js" data-artifact-kind="preview_commit_sha" data-artifact-id="8d69705f5179c9f0f32adf82d2e1b60d44150c33" data-commit-sha="8d69705f5179c9f0f32adf82d2e1b60d44150c33" data-context-token="v1.eyJwcm9qZWN0X2lkIjoiMzQ2MjE2ZjAtZDQxNS00MDEzLThmYWItMzg2YTU4OWNkNzg2IiwiYXJ0aWZhY3Rfa2luZCI6InByZXZpZXdfY29tbWl0X3NoYSIsImFydGlmYWN0X2lkIjoiOGQ2OTcwNWY1MTc5YzlmMGYzMmFkZjgyZDJlMWI2MGQ0NDE1MGMzMyIsImNvbW1pdF9zaGEiOiI4ZDY5NzA1ZjUxNzljOWYwZjMyYWRmODJkMmUxYjYwZDQ0MTUwYzMzIiwiZXhwIjoxNzgyNjcyMjEzfQ.KZ99pP9HsXM1GCkzp5nmSF0agtHl7iw0TwhK68afnEY"></script></head>
 
   <body style="overflow-x: hidden;">
@@ -41,6 +44,10 @@
     </audio>
     <button id="music-toggle" class="music-toggle" type="button" aria-label="Play background music" aria-pressed="false" title="Play background music">
       <span aria-hidden="true">&#9835;</span>
+    </button>
+    <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language to Arabic" title="Switch language to Arabic">
+      <span aria-hidden="true">🌐</span>
+      <span id="lang-label" class="lang-label">عربي</span>
     </button>
     <script>
       (() => {
@@ -67,6 +74,174 @@
         music.addEventListener('pause', updateToggle);
         document.addEventListener('pointerdown', playMusic, { once: true });
         playMusic();
+      })();
+    </script>
+    <script>
+      (() => {
+        const EN_TO_AR = {
+          "We are getting married": "نحن نتزوج",
+          "HossamEl-Din": "حسام الدين",
+          "Reem": "ريم",
+          " & ": " و ",
+          "Friday, August 28, 2026": "الجمعة، ٢٨ أغسطس ٢٠٢٦",
+          "Add to Calendar": "إضافة إلى التقويم",
+          "Scroll Down": "التمرير لأسفل",
+          "Countdown": "العد التنازلي",
+          "Days": "أيام",
+          "Hours": "ساعات",
+          "Minutes": "دقائق",
+          "Seconds": "ثواني",
+          "Location": "المكان",
+          "From 17:00 to 21:00": "من ١٧:٠٠ إلى ٢١:٠٠",
+          "Sky Resort": "سكاي ريزورت",
+          "5th settlement, Cairo": "التجمع الخامس، القاهرة",
+          "Google Maps": "خرائط جوجل",
+          "Dress Code": "قواعد الملبس",
+          "A few gentle reminders": "ملاحظات هامة",
+          "Formal Attire": "ملابس رسمية",
+          "We kindly ask you to dress formally in any shade from our celebration palette.": "نرجو منكم الالتزام بالملابس الرسمية بأي لون من ألوان حفلنا.",
+          "Celebration palette": "ألوان الحفل",
+          "FAQ": "الأسئلة الشائعة",
+          "Your questions answered": "إجابات على أسئلتكم",
+          "What is the dress code?": "ما هي قواعد الملبس؟",
+          "Can I bring a guest?": "هل يمكنني اصطحاب مرافق؟",
+          "Can I bring my children?": "هل يمكن اصطحاب الأطفال؟",
+          "What time should I arrive?": "في أي وقت يجب أن أصل؟",
+          "Where is the wedding taking place?": "أين سيقام حفل الزفاف؟",
+          "Is there parking available?": "هل يتوفر موقف للسيارات؟",
+          "RSVP": "تأكيد الحضور",
+          "We hope you can make it": "نأمل حضوركم ومشاركتنا فرحتنا",
+          "Kids not allowed": "نعتذر عن عدم اصطحاب الأطفال",
+          "An adults-only celebration. Thank you for understanding.": "حفل مخصص للكبار فقط. شكراً لتفهمكم.",
+          "Will you attend? *": "هل ستحضر؟ *",
+          "Yes, I'll be there": "نعم، سأحضر",
+          "Sorry, I can't make it": "عذراً، لن أتمكن من الحضور",
+          "Full name *": "الاسم الكامل *",
+          "Your full name": "اسمك الكامل",
+          "Who else won't be attending?": "من أيضاً لن يتمكن من الحضور؟",
+          "Companions": "المرافقون",
+          "Add adult": "إضافة مرافق",
+          "Add person": "إضافة شخص",
+          "Adult name": "اسم المرافق",
+          "Song you'd love to hear": "أغنية تود سماعها",
+          "Message for the couple (optional)": "رسالة للعروسين (اختياري)",
+          "Send RSVP": "إرسال تأكيد الحضور",
+          "Sending...": "جاري الإرسال...",
+          "Thank you for responding!": "شكراً لتأكيد حضورك!",
+          "Your RSVP has been sent successfully.": "تم إرسال تأكيد حضورك بنجاح.",
+          "Please select if you will attend": "يرجى تحديد ما إذا كنت ستحضر",
+          "Please enter your full name": "يرجى إدخال اسمك الكامل",
+          "Names required": "الأسماء مطلوبة",
+          "Please enter the name of all companions.": "يرجى إدخال أسماء جميع المرافقين.",
+          "Select...": "اختر...",
+          "Tap to open": "اضغط للفتح",
+          "Loading…": "جاري التحميل…",
+          "Thank you for being part of our special day": "شكراً لكونكم جزءاً من يومنا المميز"
+        };
+
+        const AR_TO_EN = {};
+        Object.keys(EN_TO_AR).forEach(key => {
+          AR_TO_EN[EN_TO_AR[key]] = key;
+        });
+
+        let currentLang = localStorage.getItem('wedding_lang') || 'en';
+
+        const translateText = (str, targetLang) => {
+          if (!str || typeof str !== 'string') return str;
+          const map = targetLang === 'ar' ? EN_TO_AR : AR_TO_EN;
+          let out = str;
+          Object.keys(map).forEach(key => {
+            if (out.includes(key)) {
+              out = out.split(key).join(map[key]);
+            }
+          });
+          return out;
+        };
+
+        const translateTree = (rootNode, targetLang) => {
+          if (!rootNode) return;
+          const walker = document.createTreeWalker(
+            rootNode,
+            NodeFilter.SHOW_TEXT,
+            {
+              acceptNode: (node) => {
+                if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                const parent = node.parentElement;
+                if (parent && (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE' || parent.id === 'lang-toggle')) {
+                  return NodeFilter.FILTER_REJECT;
+                }
+                return NodeFilter.FILTER_ACCEPT;
+              }
+            }
+          );
+          let node;
+          const nodesToUpdate = [];
+          while ((node = walker.nextNode())) {
+            const newText = translateText(node.nodeValue, targetLang);
+            if (newText !== node.nodeValue) {
+              nodesToUpdate.push({ node, newText });
+            }
+          }
+          nodesToUpdate.forEach(({ node, newText }) => {
+            node.nodeValue = newText;
+          });
+
+          const inputs = rootNode.querySelectorAll ? rootNode.querySelectorAll('input[placeholder], textarea[placeholder]') : [];
+          inputs.forEach(input => {
+            const ph = input.getAttribute('placeholder');
+            if (ph) {
+              const newPh = translateText(ph, targetLang);
+              if (newPh !== ph) {
+                input.setAttribute('placeholder', newPh);
+              }
+            }
+          });
+        };
+
+        const toggleBtn = document.getElementById('lang-toggle');
+        const langLabel = document.getElementById('lang-label');
+
+        const setLanguage = (lang) => {
+          currentLang = lang;
+          localStorage.setItem('wedding_lang', lang);
+          document.documentElement.lang = lang;
+          document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+          if (lang === 'ar') {
+            document.documentElement.classList.add('lang-ar');
+            document.body.classList.add('lang-ar');
+            if (langLabel) langLabel.textContent = 'EN';
+            if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Switch language to English');
+            if (toggleBtn) toggleBtn.title = 'Switch language to English';
+          } else {
+            document.documentElement.classList.remove('lang-ar');
+            document.body.classList.remove('lang-ar');
+            if (langLabel) langLabel.textContent = 'عربي';
+            if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Switch language to Arabic');
+            if (toggleBtn) toggleBtn.title = 'Switch language to Arabic';
+          }
+          translateTree(document.body, lang);
+        };
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', () => {
+            const nextLang = currentLang === 'en' ? 'ar' : 'en';
+            setLanguage(nextLang);
+          });
+        }
+
+        const observer = new MutationObserver(() => {
+          if (currentLang === 'ar') {
+            translateTree(document.body, 'ar');
+          }
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+          setLanguage(currentLang);
+          observer.observe(document.body, { childList: true, subtree: true });
+        });
+
+        setTimeout(() => setLanguage(currentLang), 300);
+        setTimeout(() => setLanguage(currentLang), 1000);
       })();
     </script>
   </body>
