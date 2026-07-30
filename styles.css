@@ -3522,6 +3522,20 @@ html[lang="ar"] .font-display * {
   font-family: 'Kaman', 'Amiri', serif !important;
   line-height: 1.4 !important;
 }
+.show-in-ar {
+  display: none !important;
+}
+.show-in-en {
+  display: flex !important;
+}
+html[lang="ar"] .show-in-ar,
+body.lang-ar .show-in-ar {
+  display: flex !important;
+}
+html[lang="ar"] .show-in-en,
+body.lang-ar .show-in-en {
+  display: none !important;
+}
 @media (max-width: 480px) {
   .music-toggle {
     right: 0.75rem;

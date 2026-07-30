@@ -21571,19 +21571,50 @@ function mF({ name1: e, name2: t, date: n, subtitle: r, paused: s }) {
           className: "w-full h-full object-cover object-center",
         }),
       }),
-      p.jsx("div", {
+      p.jsxs("div", {
         className: "relative z-10 flex flex-col items-center justify-center text-center px-6 w-full max-w-lg mx-auto py-12",
-        children: p.jsx(X.div, {
-          initial: { opacity: 0, y: 20 },
-          animate: { opacity: s ? 0 : 1, y: s ? 20 : 0 },
-          transition: { duration: 0.8, delay: 0.3 },
-          className: "w-full flex justify-center items-center",
-          children: p.jsx("img", {
-            src: "./assets/reem_intro.svg",
-            alt: "Reem & Hossam Wedding",
-            className: "w-72 sm:w-80 md:w-96 max-h-[75vh] object-contain mx-auto",
+        children: [
+          p.jsxs("div", {
+            className: "show-in-en w-full flex-col items-center justify-center text-center",
+            children: [
+              p.jsx(X.p, {
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: s ? 0 : 1, y: s ? 20 : 0 },
+                transition: { duration: 0.8, delay: 0.3 },
+                className: "text-sm md:text-base tracking-[0.3em] uppercase font-body mb-4 text-foreground/80",
+                children: "We are getting married",
+              }),
+              p.jsxs(X.h1, {
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: s ? 0 : 1, y: s ? 20 : 0 },
+                transition: { duration: 0.8, delay: 0.6 },
+                className: "font-script text-5xl md:text-7xl mb-3 text-foreground",
+                children: ["HossamEl-Din", " & ", t],
+              }),
+              p.jsx(X.p, {
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: s ? 0 : 1, y: s ? 20 : 0 },
+                transition: { duration: 0.8, delay: 0.9 },
+                className: "text-sm md:text-base tracking-[0.2em] uppercase font-body text-foreground/70",
+                children: i,
+              }),
+            ],
           }),
-        }),
+          p.jsx("div", {
+            className: "show-in-ar w-full items-center justify-center",
+            children: p.jsx(X.div, {
+              initial: { opacity: 0, y: 20 },
+              animate: { opacity: s ? 0 : 1, y: s ? 20 : 0 },
+              transition: { duration: 0.8, delay: 0.3 },
+              className: "w-full flex justify-center items-center",
+              children: p.jsx("img", {
+                src: "./assets/reem_intro.svg",
+                alt: "Reem & Hossam Wedding",
+                className: "w-72 sm:w-80 md:w-96 max-h-[75vh] object-contain mx-auto",
+              }),
+            }),
+          }),
+        ],
       }),
     ],
   });
