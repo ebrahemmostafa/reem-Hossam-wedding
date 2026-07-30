@@ -21585,8 +21585,8 @@ function mF({ name1: e, name2: t, date: n, subtitle: r, paused: s }) {
             initial: { opacity: 0, y: 20 },
             animate: { opacity: s ? 0 : 1, y: s ? 20 : 0 },
             transition: { duration: 0.8, delay: 0.6 },
-            className: "font-script text-6xl md:text-8xl mb-3 text-foreground",
-            children: [e, " & ", t],
+            className: "font-script text-5xl md:text-7xl mb-3 text-foreground",
+            children: ["HossamEl-Din", " & ", t],
           }),
           p.jsx(X.p, {
             initial: { opacity: 0, y: 20 },
@@ -21833,110 +21833,7 @@ function xF({
     ],
   });
 }
-const A_ = "./assets/couple-dancing-D8lPNoP4.png",
-  bF = [
-    { time: "17:00", title: "Arrival & Welcome Drinks", description: "Reception and welcome cocktails at the villa" },
-    { time: "17:30", title: "Ceremony", description: "The most special moment of the day" },
-    { time: "18:00", title: "Cocktail Hour & Dinner", description: "Al fresco dining under the stars" },
-    { time: "20:00", title: "Party", description: "Let's dance the night away!" },
-    {
-      time: "21:00",
-      title: "Last Dance",
-      description: `Farewell and
-beautiful memories`,
-    },
-  ];
-function SF({ event: e, index: t }) {
-  const n = v.useRef(null),
-    r = hF(n, { margin: "-40% 0px -40% 0px" });
-  return p.jsxs("div", {
-    ref: n,
-    className: "flex flex-col items-center",
-    children: [
-      t > 0 &&
-        p.jsx(X.div, {
-          initial: { scaleY: 0 },
-          whileInView: { scaleY: 1 },
-          viewport: { once: !0 },
-          transition: { duration: 0.4, delay: t * 0.08 },
-          className: "w-px bg-sage-dark/30 origin-top h-10 md:h-14",
-        }),
-      p.jsxs(X.div, {
-        initial: { opacity: 0, y: 20 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: !0 },
-        transition: { duration: 0.4, delay: t * 0.08 },
-        className: "text-center py-1 transition-all duration-500",
-        style: { opacity: r ? 1 : 0.35, transform: r ? "scale(1.05)" : "scale(1)" },
-        children: [
-          t === 0 &&
-            p.jsx("p", {
-              className: "text-sage-dark/60 font-body text-sm tracking-widest uppercase mb-1",
-              children: e.time,
-            }),
-          p.jsx("h3", {
-            className: "font-display text-xl md:text-2xl text-sage-dark mb-1 font-medium",
-            children: e.title,
-          }),
-          e.description &&
-            p.jsx("p", {
-              className: "text-sage-dark/80 font-body text-base md:text-lg whitespace-pre-line",
-              children: e.description,
-            }),
-        ],
-      }),
-    ],
-  });
-}
-function EF() {
-  return p.jsxs("section", {
-    className: "relative bg-ivory overflow-hidden",
-    children: [
-      p.jsx("div", {
-        className: "flex justify-center pt-16 md:pt-20",
-        children: p.jsx(X.img, {
-          initial: { opacity: 0, y: 20 },
-          whileInView: { opacity: 1, y: 0 },
-          viewport: { once: !0 },
-          transition: { duration: 0.6 },
-          src: A_,
-          alt: "Couple dancing illustration",
-          className: "w-56 md:w-72 object-contain",
-        }),
-      }),
-      p.jsx("div", {
-        className: "relative z-10 pt-6 md:pt-8 px-6",
-        children: p.jsx("div", {
-          className: "max-w-5xl mx-auto",
-          children: p.jsxs(X.div, {
-            initial: { opacity: 0, y: 20 },
-            whileInView: { opacity: 1, y: 0 },
-            viewport: { once: !0 },
-            transition: { duration: 0.6 },
-            className: "text-center mb-6",
-            children: [
-              p.jsx("h2", {
-                className: "font-script text-5xl md:text-6xl text-sage-dark mb-3",
-                children: "Order of the Day",
-              }),
-              p.jsx("p", {
-                className: "text-sm text-sage-dark/60 font-body tracking-widest uppercase",
-                children: "What we have planned for you",
-              }),
-            ],
-          }),
-        }),
-      }),
-      p.jsx("div", {
-        className: "relative mt-8 md:mt-12 pb-16 md:pb-20 px-6",
-        children: p.jsx("div", {
-          className: "flex flex-col items-center",
-          children: bF.map((e, t) => p.jsx(SF, { event: e, index: t }, e.title)),
-        }),
-      }),
-    ],
-  });
-}
+const A_ = "./assets/couple-dancing-D8lPNoP4.png";
 const N_ = "./assets/dress-code-illustration-Yae00T83.png";
 function _F() {
   return p.jsx("section", {
@@ -31268,7 +31165,7 @@ const MB = () => {
         className: "bg-background",
         children: [
           p.jsx(mF, {
-            name1: l.couple_name_1,
+            name1: "HossamEl-Din",
             name2: l.couple_name_2,
             date: l.wedding_date,
             subtitle: l.hero_subtitle,
