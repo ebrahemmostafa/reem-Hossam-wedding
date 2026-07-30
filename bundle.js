@@ -21579,8 +21579,8 @@ function mF({ name1: e, name2: t, date: n, subtitle: r, paused: s }) {
           transition: { duration: 0.8, delay: 0.3 },
           className: "w-full flex justify-center items-center",
           children: p.jsx("img", {
-            src: "./assets/intro_amira.svg",
-            alt: "Amira Wedding",
+            src: "./assets/reem_intro.svg",
+            alt: "Reem & Hossam Wedding",
             className: "w-72 sm:w-80 md:w-96 max-h-[75vh] object-contain mx-auto",
           }),
         }),
