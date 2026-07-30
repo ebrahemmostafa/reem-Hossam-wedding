@@ -30965,7 +30965,7 @@ function hB({ name1: e, name2: t, date: n }) {
           transition: { duration: 0.8 },
           className: "flex flex-col items-center pt-12",
           children: [
-            p.jsxs("p", { className: "font-script text-3xl text-sage-dark mt-2 mb-1", children: [e, " & ", t] }),
+            p.jsxs("p", { className: "font-script text-3xl text-sage-dark mt-2 mb-1", children: ["HossamEl-Din", " & ", t] }),
             p.jsx("p", { className: "text-sm text-sage-dark/80 font-body tracking-wide", children: r }),
             p.jsx("img", { src: uB, alt: "Ornament", className: "w-80 md:w-96 mx-auto mt-8" }),
           ],
@@ -31151,7 +31151,7 @@ const MB = () => {
           p.jsx(_F, {}),
           p.jsx(T4, {}),
           p.jsx(cB, {}),
-          p.jsx(hB, { name1: l.couple_name_1, name2: l.couple_name_2, date: l.wedding_date }),
+          p.jsx(hB, { name1: "HossamEl-Din", name2: l.couple_name_2, date: l.wedding_date }),
         ],
       }),
     ],
