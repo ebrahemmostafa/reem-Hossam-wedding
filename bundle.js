@@ -30704,7 +30704,7 @@ function cB() {
               children: [
                 p.jsx("p", {
                   className: "font-display text-sm tracking-[0.16em] uppercase text-[#a16d78]",
-                  children: "Kids not allowed",
+                  children: "Adults only Celebration",
                 }),
                 p.jsx("p", {
                   className: "mt-1 text-xs text-sage-dark/60 font-body",
