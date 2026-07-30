@@ -3448,6 +3448,13 @@ h6 {
   outline-offset: 3px;
 }
 @font-face {
+  font-family: 'Aceh Darusalam';
+  src: url('./assets/fonts/AD.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Kaman';
   src: url('./assets/fonts/kaman-Regular.otf') format('opentype');
   font-weight: normal;
@@ -3519,7 +3526,7 @@ html[lang="ar"] .font-serif,
 html[lang="ar"] .font-serif *,
 html[lang="ar"] .font-display,
 html[lang="ar"] .font-display * {
-  font-family: 'Kaman', 'Amiri', serif !important;
+  font-family: 'Aceh Darusalam', 'Kaman', 'Amiri', serif !important;
   line-height: 1.4 !important;
 }
 .show-in-ar {
