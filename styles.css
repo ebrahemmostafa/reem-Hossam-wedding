@@ -3529,11 +3529,15 @@ html[lang="ar"] .font-display * {
   display: flex !important;
 }
 html[lang="ar"] .show-in-ar,
-body.lang-ar .show-in-ar {
+body.lang-ar .show-in-ar,
+.lang-ar .show-in-ar,
+[dir="rtl"] .show-in-ar {
   display: flex !important;
 }
 html[lang="ar"] .show-in-en,
-body.lang-ar .show-in-en {
+body.lang-ar .show-in-en,
+.lang-ar .show-in-en,
+[dir="rtl"] .show-in-en {
   display: none !important;
 }
 @media (max-width: 480px) {
