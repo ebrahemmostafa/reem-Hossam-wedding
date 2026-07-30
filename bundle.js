@@ -21855,7 +21855,6 @@ function xF({
 const A_ = "./assets/couple-dancing-D8lPNoP4.png";
 const N_ = "./assets/dress-code-illustration-Yae00T83.png";
 function _F() {
-  return null;
   return p.jsx("section", {
     className: "section-padding bg-ivory",
     children: p.jsxs("div", {
@@ -21870,64 +21869,80 @@ function _F() {
           children: [
             p.jsx("h2", {
               className: "font-script text-5xl md:text-6xl text-sage-dark mb-3 tracking-tight",
-              children: "Timeline",
+              children: "Dress Code",
             }),
             p.jsx("p", {
               className: "text-sm text-sage-dark/60 font-body tracking-widest uppercase",
-              children: "Schedule of Events",
+              children: "A few gentle reminders",
             }),
           ],
         }),
-        p.jsx(X.div, {
+        p.jsxs(X.div, {
           initial: { opacity: 0, y: 20 },
           whileInView: { opacity: 1, y: 0 },
           viewport: { once: !0 },
           transition: { duration: 0.6, delay: 0.2 },
           className: "text-center",
-          children: p.jsxs("div", {
-            className: "bg-white rounded-[2rem] p-8 md:p-12 shadow-soft space-y-6 relative z-0 mt-8",
-            children: [
-              p.jsx("h3", {
-                className: "font-display text-2xl md:text-3xl text-sage-dark mb-3",
-                children: "Katb El Ketab & Reception",
-              }),
-              p.jsx("p", {
-                className: "text-sage-dark/80 font-body text-base md:text-lg leading-relaxed",
-                children: "The celebration begins with (Katb El Ketab) at 17:00, followed by the wedding reception.",
-              }),
-              p.jsxs("div", {
-                className: "border-t border-sage/15 pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6 text-center",
-                children: [
-                  p.jsxs("div", {
-                    className: "flex flex-col items-center p-4 rounded-xl bg-ivory/50 border border-sage/10",
-                    children: [
-                      p.jsx("span", {
-                        className: "font-display text-2xl text-sage-dark font-semibold",
-                        children: "17:00",
-                      }),
-                      p.jsx("span", {
-                        className: "text-sm text-sage-dark/70 font-body mt-1 uppercase tracking-wider",
-                        children: "Katb El Ketab",
-                      }),
-                    ],
-                  }),
-                  p.jsxs("div", {
-                    className: "flex flex-col items-center p-4 rounded-xl bg-ivory/50 border border-sage/10",
-                    children: [
-                      p.jsx("span", {
-                        className: "font-display text-2xl text-sage-dark font-semibold",
-                        children: "Followed by",
-                      }),
-                      p.jsx("span", {
-                        className: "text-sm text-sage-dark/70 font-body mt-1 uppercase tracking-wider",
-                        children: "Wedding Reception",
-                      }),
-                    ],
-                  }),
-                ],
-              }),
-            ],
-          }),
+          children: [
+            p.jsx("img", {
+              src: N_,
+              alt: "Elegant guests illustration",
+              className: "w-full mx-auto relative z-10 mb-[-2.5rem]",
+            }),
+            p.jsxs("div", {
+              className: "bg-white rounded-[2rem] p-8 pt-12 shadow-soft space-y-5 relative z-0",
+              children: [
+                p.jsxs("div", {
+                  children: [
+                    p.jsx("h3", { className: "font-display text-xl text-sage-dark mb-2", children: "Formal Attire" }),
+                    p.jsx("p", {
+                      className: "text-sage-dark/70 font-body leading-relaxed",
+                      children: "We kindly ask you to dress formally in any shade from our celebration palette.",
+                    }),
+                  ],
+                }),
+                p.jsxs("div", {
+                  className: "border-t border-sage/15 pt-5",
+                  children: [
+                    p.jsx("p", {
+                      className: "text-[10px] text-sage-dark/60 font-body tracking-[0.2em] uppercase mb-4",
+                      children: "Celebration palette",
+                    }),
+                    p.jsx("div", {
+                      className: "grid grid-cols-4 sm:grid-cols-8 gap-x-3 gap-y-4",
+                      children: [
+                        ["Sage Green", "#a8a99a"],
+                        ["Dusty Rose", "#c99c99"],
+                        ["Lavender", "#a89aac"],
+                        ["Blush Pink", "#d3aaa4"],
+                        ["Powder Blue", "#aeb8ca"],
+                        ["Champagne Beige", "#cdbba8"],
+                        ["Soft Mint", "#bdc2bb"],
+                        ["Mauve", "#b7a1a1"],
+                      ].map(([e, t]) =>
+                        p.jsx(
+                          "div",
+                          {
+                            className: "flex flex-col items-center gap-2",
+                            children: p.jsx("span", {
+                              className: "w-10 h-10 rounded-full border border-black/5 shadow-sm",
+                              style: { backgroundColor: t },
+                              "aria-hidden": !0,
+                            }),
+                          },
+                          e,
+                        ),
+                      ),
+                    }),
+                  ],
+                }),
+                p.jsx("p", {
+                  className: "text-sage-dark/70 font-body leading-relaxed italic text-sm",
+                  children: "Please avoid wearing white — it is reserved for the bride.",
+                }),
+              ],
+            }),
+          ],
         }),
       ],
     }),
@@ -31152,7 +31167,7 @@ const MB = () => {
             endTime: "21:00",
             weddingDate: l.wedding_date,
           }),
-          null,
+          p.jsx(_F, {}),
           p.jsx(T4, {}),
           p.jsx(cB, {}),
           p.jsx(hB, { name1: "HossamEl-Din", name2: l.couple_name_2, date: l.wedding_date }),
