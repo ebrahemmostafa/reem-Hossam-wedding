@@ -31115,8 +31115,8 @@ const fB = "./assets/watermark-DICa3eBu.png",
         }),
       ],
     }),
-  YC = "./assets/intro-video-Dhn3t98e.mp4",
-  JC = "./assets/intro-poster-BaLFALiu.jpg",
+  YC = "./assets/video_reem.mp4",
+  JC = "./assets/frame_reem.jpeg",
   mB = ({ onEnter: e, onInteraction: t }) => {
     const [n, r] = v.useState("idle"),
       s = v.useRef(null);
