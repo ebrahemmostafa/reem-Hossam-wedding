@@ -21828,19 +21828,6 @@ function xF({
               }),
             ],
           }),
-          p.jsxs("div", {
-            className: "w-full max-w-xs border-t border-sage/20 pt-4 pb-2 text-center",
-            children: [
-              p.jsx("p", {
-                className: "font-display text-sm tracking-[0.16em] uppercase text-[#a16d78]",
-                children: "Kids not allowed",
-              }),
-              p.jsx("p", {
-                className: "mt-1 text-xs text-sage-dark/60 font-body",
-                children: "An adults-only celebration. Thank you for understanding.",
-              }),
-            ],
-          }),
         ],
       }),
     ],
@@ -30795,6 +30782,19 @@ function cB() {
             p.jsx("p", {
               className: "text-sm text-sage-dark/60 font-body tracking-widest uppercase",
               children: "We hope you can make it",
+            }),
+            p.jsxs("div", {
+              className: "w-full max-w-xs mx-auto border-t border-sage/20 pt-4 mt-4 text-center",
+              children: [
+                p.jsx("p", {
+                  className: "font-display text-sm tracking-[0.16em] uppercase text-[#a16d78]",
+                  children: "Kids not allowed",
+                }),
+                p.jsx("p", {
+                  className: "mt-1 text-xs text-sage-dark/60 font-body",
+                  children: "An adults-only celebration. Thank you for understanding.",
+                }),
+              ],
             }),
           ],
         }),
