@@ -31283,7 +31283,6 @@ const MB = () => {
             endTime: "21:00",
             weddingDate: l.wedding_date,
           }),
-          p.jsx(EF, {}),
           p.jsx(_F, {}),
           p.jsx(T4, {}),
           p.jsx(cB, {}),
