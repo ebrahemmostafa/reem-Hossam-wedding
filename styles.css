@@ -3533,6 +3533,10 @@ body.lang-ar .show-in-ar,
 .lang-ar .show-in-ar,
 [dir="rtl"] .show-in-ar {
   display: flex !important;
+  margin-top: 28vh !important;
+}
+.show-in-ar img {
+  max-height: 48vh !important;
 }
 html[lang="ar"] .show-in-en,
 body.lang-ar .show-in-en,

@@ -21601,7 +21601,7 @@ function mF({ name1: e, name2: t, date: n, subtitle: r, paused: s }) {
             ],
           }),
           p.jsx("div", {
-            className: "show-in-ar w-full items-center justify-center",
+            className: "show-in-ar w-full items-center justify-center mt-36 sm:mt-44 md:mt-52",
             children: p.jsx(X.div, {
               initial: { opacity: 0, y: 20 },
               animate: { opacity: s ? 0 : 1, y: s ? 20 : 0 },
@@ -21610,7 +21610,7 @@ function mF({ name1: e, name2: t, date: n, subtitle: r, paused: s }) {
               children: p.jsx("img", {
                 src: "./assets/reem_intro.svg",
                 alt: "Reem & Hossam Wedding",
-                className: "w-72 sm:w-80 md:w-96 max-h-[75vh] object-contain mx-auto",
+                className: "w-72 sm:w-80 md:w-96 max-h-[45vh] object-contain mx-auto",
               }),
             }),
           }),
