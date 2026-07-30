@@ -29666,7 +29666,6 @@ function P4({ enabled: e }) {
             className: "text-sm text-sage-dark/60 font-body tracking-widest uppercase mb-4",
             children: "A thoughtful gesture",
           }),
-          p.jsx("img", { src: R4, alt: "", className: "w-52 mx-auto mb-8" }),
           p.jsxs("div", {
             className: "relative max-w-lg mx-auto pb-16",
             children: [
