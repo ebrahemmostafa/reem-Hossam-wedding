@@ -3448,6 +3448,13 @@ h6 {
   outline-offset: 3px;
 }
 @font-face {
+  font-family: 'Hasan Hiba';
+  src: url('./assets/fonts/Hasan_Hiba.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Aceh Darusalam';
   src: url('./assets/fonts/AD.ttf') format('truetype');
   font-weight: normal;
@@ -3526,7 +3533,7 @@ html[lang="ar"] .font-serif,
 html[lang="ar"] .font-serif *,
 html[lang="ar"] .font-display,
 html[lang="ar"] .font-display * {
-  font-family: 'Aceh Darusalam', 'Kaman', 'Amiri', serif !important;
+  font-family: 'Hasan Hiba', 'Kaman', 'Amiri', serif !important;
   line-height: 1.4 !important;
 }
 .show-in-ar {
