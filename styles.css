@@ -3527,6 +3527,7 @@ html[lang="ar"] .font-display * {
 }
 .show-in-en {
   display: flex !important;
+  margin-top: 30vh !important;
 }
 html[lang="ar"] .show-in-ar,
 body.lang-ar .show-in-ar,

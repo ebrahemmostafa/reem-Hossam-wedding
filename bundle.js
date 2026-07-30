@@ -21575,7 +21575,7 @@ function mF({ name1: e, name2: t, date: n, subtitle: r, paused: s }) {
         className: "relative z-10 flex flex-col items-center justify-center text-center px-6 w-full max-w-lg mx-auto py-12",
         children: [
           p.jsxs("div", {
-            className: "show-in-en w-full flex-col items-center justify-center text-center",
+            className: "show-in-en w-full flex-col items-center justify-center text-center mt-36 sm:mt-44 md:mt-52",
             children: [
               p.jsx(X.p, {
                 initial: { opacity: 0, y: 20 },
