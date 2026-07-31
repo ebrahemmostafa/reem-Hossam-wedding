@@ -199,6 +199,17 @@
       transform: translateY(-2px);
     }
 
+    .btn-clear {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--danger);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-clear:hover {
+      background: var(--danger);
+      color: #fff;
+    }
+
     /* Table Section */
     .table-card {
       background: var(--bg-card);
@@ -356,6 +367,9 @@
         </button>
         <button class="action-btn btn-export" id="btn-export" title="تنزيل كملف CSV / إكسيل">
           <span>📥</span> تحميل كملف Excel (CSV)
+        </button>
+        <button class="action-btn btn-clear" id="btn-clear" title="تصفية قاعدة البيانات ومسح الردود التجريبية">
+          <span>🗑️</span> تصفية القاعدة (مسح التجارب)
         </button>
       </div>
     </div>
@@ -538,6 +552,36 @@
       document.body.removeChild(link);
     }
 
+    async function clearDatabase() {
+      if (!confirm("هل أنت متأكد من رغبتك في مسح جميع الردود وتفريغ قاعدة البيانات بالكامل؟")) {
+        return;
+      }
+
+      const loader = document.getElementById("loader");
+      const tableWrapper = document.getElementById("table-wrapper");
+      loader.style.display = "block";
+      if (tableWrapper) tableWrapper.style.display = "none";
+
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/guests?id=not.is.null`, {
+          method: "DELETE",
+          headers: {
+            "apikey": SUPABASE_ANON_KEY,
+            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`
+          }
+        });
+
+        if (!response.ok) throw new Error("فشل في مسح البيانات");
+
+        alert("تم تفريغ قاعدة البيانات بنجاح! جميع العدادات الآن 0.");
+        await fetchGuests();
+      } catch (error) {
+        console.error(error);
+        alert("حدث خطأ أثناء مسح البيانات: " + error.message);
+        loader.style.display = "none";
+      }
+    }
+
     // Event Listeners
     document.getElementById("search-box").addEventListener("input", renderTable);
 
@@ -552,6 +596,7 @@
 
     document.getElementById("btn-refresh").addEventListener("click", fetchGuests);
     document.getElementById("btn-export").addEventListener("click", exportToCSV);
+    document.getElementById("btn-clear").addEventListener("click", clearDatabase);
 
     // Initial Load
     fetchGuests();
