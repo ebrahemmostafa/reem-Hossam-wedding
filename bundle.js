@@ -15969,7 +15969,7 @@ function Qo(e) {
 }
 function bD(e) {
   let {
-    basename: t = "/reem-Hossam-wedding/",
+    basename: t = window.location.pathname.startsWith("/reem-Hossam-wedding") ? "/reem-Hossam-wedding/" : "/",
     children: n = null,
     location: r,
     navigationType: s = Ir.Pop,
