@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>قائمة ردود المدعوين (RSVP Guest Responses) - حسام الدين وريم</title>
+  <title>RSVP Guest Responses — Hossam & Reem Wedding</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Amiri:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-main: #0f172a;
@@ -29,7 +29,7 @@
     }
 
     body {
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
       color: var(--text-main);
       min-height: 100vh;
@@ -45,7 +45,7 @@
     header {
       text-align: center;
       margin-bottom: 35px;
-      padding: 25px;
+      padding: 28px;
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 16px;
@@ -54,10 +54,11 @@
     }
 
     header h1 {
-      font-family: 'Amiri', serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 2.2rem;
       color: var(--gold-light);
       margin-bottom: 8px;
+      letter-spacing: -0.5px;
     }
 
     header p {
@@ -80,7 +81,7 @@
       padding: 20px;
       text-align: center;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
     .stat-card:hover {
@@ -91,6 +92,7 @@
     .stat-title {
       color: var(--text-muted);
       font-size: 0.95rem;
+      font-weight: 500;
       margin-bottom: 6px;
     }
 
@@ -120,13 +122,13 @@
 
     .search-input {
       flex: 1;
-      min-width: 250px;
+      min-width: 260px;
       background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 10px;
       padding: 12px 16px;
       color: #fff;
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
       outline: none;
       transition: border 0.3s;
@@ -149,7 +151,7 @@
       padding: 8px 16px;
       border-radius: 8px;
       cursor: pointer;
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 600;
       transition: all 0.2s;
     }
@@ -163,6 +165,7 @@
     .actions-group {
       display: flex;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .action-btn {
@@ -171,7 +174,7 @@
       gap: 6px;
       padding: 10px 18px;
       border-radius: 10px;
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
       cursor: pointer;
       border: none;
@@ -226,7 +229,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      text-align: right;
+      text-align: left;
     }
 
     th {
@@ -304,7 +307,7 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      border-left-color: var(--gold-light);
+      border-top-color: var(--gold-light);
       animation: spin 1s linear infinite;
       margin: 0 auto 15px;
     }
@@ -326,50 +329,50 @@
 
   <div class="container">
     <header>
-      <h1>سجل حضور المدعوين (RSVP Guest Responses)</h1>
-      <p>حفل زفاف حسام الدين وريم — تحديث مباشر ومزامنة من أي جهاز</p>
+      <h1>RSVP Guest Responses</h1>
+      <p>Hossam & Reem's Wedding — Live Updates & Sync Across All Devices</p>
     </header>
 
     <!-- Summary Stats -->
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="stat-title">إجمالي الردود المسجلة</div>
+        <div class="stat-title">Total Responses</div>
         <div class="stat-value gold" id="total-responses">-</div>
       </div>
       <div class="stat-card">
-        <div class="stat-title">مؤكد حضورهم (نعم)</div>
+        <div class="stat-title">Confirmed Attending (Yes)</div>
         <div class="stat-value green" id="confirmed-guests">-</div>
       </div>
       <div class="stat-card">
-        <div class="stat-title">إجمالي عدد الأفراد (الحضور)</div>
+        <div class="stat-title">Total Headcount (Attending)</div>
         <div class="stat-value green" id="total-headcount">-</div>
       </div>
       <div class="stat-card">
-        <div class="stat-title">معتذرون عن الحضور (لا)</div>
+        <div class="stat-title">Declined (No)</div>
         <div class="stat-value red" id="declined-guests">-</div>
       </div>
     </div>
 
     <!-- Controls Bar -->
     <div class="controls-bar">
-      <input type="text" id="search-box" class="search-input" placeholder="ابحث بالاسم، التليفون، أو ملاحظات المدعو...">
+      <input type="text" id="search-box" class="search-input" placeholder="Search by guest name, phone, or notes...">
       
       <div class="filter-group">
-        <button class="filter-btn active" data-filter="all">الكل</button>
-        <button class="filter-btn" data-filter="yes">حاضر (نعم)</button>
-        <button class="filter-btn" data-filter="no">معتذر (لا)</button>
-        <button class="filter-btn" data-filter="maybe">ربما</button>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="yes">Attending (Yes)</button>
+        <button class="filter-btn" data-filter="no">Declined (No)</button>
+        <button class="filter-btn" data-filter="maybe">Maybe</button>
       </div>
 
       <div class="actions-group">
-        <button class="action-btn btn-refresh" id="btn-refresh" title="تحديث مباشر من قاعدة البيانات">
-          <span>🔄</span> تحديث
+        <button class="action-btn btn-refresh" id="btn-refresh" title="Refresh directly from database">
+          <span>🔄</span> Refresh
         </button>
-        <button class="action-btn btn-export" id="btn-export" title="تنزيل كملف CSV / إكسيل">
-          <span>📥</span> تحميل كملف Excel (CSV)
+        <button class="action-btn btn-export" id="btn-export" title="Download as CSV / Excel spreadsheet">
+          <span>📥</span> Export Excel (CSV)
         </button>
-        <button class="action-btn btn-clear" id="btn-clear" title="تصفية قاعدة البيانات ومسح الردود التجريبية">
-          <span>🗑️</span> تصفية القاعدة (مسح التجارب)
+        <button class="action-btn btn-clear" id="btn-clear" title="Clear all test responses and reset database">
+          <span>🗑️</span> Clear Database (Reset)
         </button>
       </div>
     </div>
@@ -378,7 +381,7 @@
     <div class="table-card">
       <div id="loader" class="loader-box">
         <div class="spinner"></div>
-        <p>جاري جلب قائمة المدعوين مباشرة من قاعدة البيانات...</p>
+        <p>Fetching guest list directly from the database...</p>
       </div>
 
       <div class="table-wrapper" id="table-wrapper" style="display: none;">
@@ -386,13 +389,13 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>الاسم / البريد الإلكتروني</th>
-              <th>رقم الهاتف</th>
-              <th>حالة الحضور</th>
-              <th>عدد الأفراد</th>
-              <th>يحتاج مواصلات</th>
-              <th>رسالة المهنئ / الملاحظات</th>
-              <th>تاريخ التسجيل</th>
+              <th>Name / Email</th>
+              <th>Phone Number</th>
+              <th>Attendance Status</th>
+              <th>Headcount</th>
+              <th>Needs Transport</th>
+              <th>Guest Message / Notes</th>
+              <th>Response Date</th>
             </tr>
           </thead>
           <tbody id="guests-tbody">
@@ -402,12 +405,12 @@
       </div>
 
       <div id="empty-state" class="empty-state" style="display: none;">
-        لا توجد نتائج مطابقة للبحث أو الفلتر المختار.
+        No guest responses matching the search or selected filter.
       </div>
     </div>
 
     <footer>
-      <p>يتم جلب البيانات وتحديثها مباشرة من قاعدة بيانات Supabase — متاح للوصول من أي متصفح أو جهاز في أي وقت.</p>
+      <p>Data is fetched and updated live from Supabase database — accessible from any browser or device at any time.</p>
     </footer>
   </div>
 
@@ -436,14 +439,14 @@
           }
         });
 
-        if (!response.ok) throw new Error("فشل في الاتصال بقاعدة البيانات");
+        if (!response.ok) throw new Error("Failed to connect to the database");
 
         allGuests = await response.json();
         updateStats();
         renderTable();
       } catch (error) {
         console.error(error);
-        loader.innerHTML = `<p style="color: #ef4444;">حدث خطأ أثناء تحميل البيانات: ${error.message}</p>`;
+        loader.innerHTML = `<p style="color: #ef4444;">Error loading data: ${error.message}</p>`;
       }
     }
 
@@ -489,31 +492,31 @@
       emptyState.style.display = "none";
 
       tbody.innerHTML = filtered.map((g, index) => {
-        let statusText = "غير محدد";
+        let statusText = "Not Specified";
         let statusClass = "status-maybe";
         if (g.attendance === "yes") {
-          statusText = "حاضر (نعم)";
+          statusText = "Attending (Yes)";
           statusClass = "status-yes";
         } else if (g.attendance === "no") {
-          statusText = "معتذر (لا)";
+          statusText = "Declined (No)";
           statusClass = "status-no";
         } else if (g.attendance === "maybe") {
-          statusText = "ربما";
+          statusText = "Maybe";
           statusClass = "status-maybe";
         }
 
         const dateStr = g.responded_at || g.created_at;
-        const formattedDate = dateStr ? new Date(dateStr).toLocaleString("ar-EG", {
+        const formattedDate = dateStr ? new Date(dateStr).toLocaleString("en-US", {
           year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"
         }) : "-";
 
-        const needsTransport = g.needs_transport ? "✅ نعم" : "❌ لا";
+        const needsTransport = g.needs_transport ? "✅ Yes" : "❌ No";
 
         return `
           <tr>
             <td>${index + 1}</td>
-            <td><strong>${g.full_name || g.email || "بدون اسم"}</strong></td>
-            <td dir="ltr" style="text-align: right;">${g.phone || "-"}</td>
+            <td><strong>${g.full_name || g.email || "No Name"}</strong></td>
+            <td>${g.phone || "-"}</td>
             <td><span class="badge-status ${statusClass}">${statusText}</span></td>
             <td><strong>${g.attendance === "yes" ? (g.guest_count || 1) : "-"}</strong></td>
             <td>${needsTransport}</td>
@@ -526,17 +529,17 @@
 
     function exportToCSV() {
       if (allGuests.length === 0) {
-        alert("لا توجد بيانات لتصديرها");
+        alert("No data available to export");
         return;
       }
 
-      const headers = ["الاسم/البريد", "رقم الهاتف", "حالة الحضور", "عدد الأفراد", "يحتاج مواصلات", "الملاحظات", "تاريخ التسجيل"];
+      const headers = ["Name/Email", "Phone", "Attendance", "Headcount", "Needs Transport", "Message", "Response Date"];
       const rows = allGuests.map(g => [
         `"${(g.full_name || g.email || "").replace(/"/g, '""')}"`,
         `"${(g.phone || "").replace(/"/g, '""')}"`,
-        `"${g.attendance === "yes" ? "حاضر" : (g.attendance === "no" ? "معتذر" : "ربما")}"`,
+        `"${g.attendance === "yes" ? "Attending" : (g.attendance === "no" ? "Declined" : "Maybe")}"`,
         `"${g.attendance === "yes" ? (g.guest_count || 1) : 0}"`,
-        `"${g.needs_transport ? "نعم" : "لا"}"`,
+        `"${g.needs_transport ? "Yes" : "No"}"`,
         `"${(g.message || "").replace(/"/g, '""')}"`,
         `"${g.responded_at || g.created_at || ""}"`
       ]);
@@ -553,7 +556,7 @@
     }
 
     async function clearDatabase() {
-      if (!confirm("هل أنت متأكد من رغبتك في مسح جميع الردود وتفريغ قاعدة البيانات بالكامل؟")) {
+      if (!confirm("Are you sure you want to clear all test responses and reset the database?")) {
         return;
       }
 
@@ -571,13 +574,13 @@
           }
         });
 
-        if (!response.ok) throw new Error("فشل في مسح البيانات");
+        if (!response.ok) throw new Error("Failed to clear database");
 
-        alert("تم تفريغ قاعدة البيانات بنجاح! جميع العدادات الآن 0.");
+        alert("Database cleared successfully! All counts are now 0.");
         await fetchGuests();
       } catch (error) {
         console.error(error);
-        alert("حدث خطأ أثناء مسح البيانات: " + error.message);
+        alert("An error occurred while clearing data: " + error.message);
         loader.style.display = "none";
       }
     }
