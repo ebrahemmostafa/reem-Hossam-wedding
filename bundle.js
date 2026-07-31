@@ -29443,9 +29443,9 @@ E4() &&
   console.warn(
     "⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217",
   );
-const _4 = "https://fozoivthiepvjqwostae.supabase.co",
+const _4 = "https://cwcsbydzseldbjtadbbu.supabase.co",
   C4 =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZvem9pdnRoaWVwdmpxd29zdGFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0ODEzNTYsImV4cCI6MjA5MTA1NzM1Nn0.3AdyExyuQNGnRcXVqtjeAfEs505IRelfnvRIurd3Zhs",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN3Y3NieWR6c2VsZGJqdGFkYmJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MTY5NjYsImV4cCI6MjEwMTA5Mjk2Nn0.QWNqAihPZNB1IXNtmgStQ8k_hIuSto0u5cU7KVOER4g",
   Ct = S4(_4, C4, { auth: { storage: localStorage, persistSession: !0, autoRefreshToken: !0 } });
 function k4() {
   return $m({
