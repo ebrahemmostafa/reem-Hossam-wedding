@@ -321,6 +321,15 @@
       color: var(--text-muted);
     }
 
+    .song-cell {
+      max-width: 220px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--olive-dark);
+      font-weight: 500;
+    }
+
     .empty-state {
       text-align: center;
       padding: 60px 20px;
@@ -425,6 +434,8 @@
               <th>Phone Number</th>
               <th>Attendance Status</th>
               <th>Headcount</th>
+              <th>Companions</th>
+              <th>Song Request 🎵</th>
               <th>Needs Transport</th>
               <th>Guest Message / Notes</th>
               <th>Response Date</th>
@@ -510,7 +521,12 @@
         const name = (g.full_name || g.email || "").toLowerCase();
         const phone = (g.phone || "").toLowerCase();
         const msg = (g.message || "").toLowerCase();
-        const matchesSearch = name.includes(query) || phone.includes(query) || msg.includes(query);
+        const song = (g.song_request || "").toLowerCase();
+        let companions = "";
+        if (Array.isArray(g.companions) && g.companions.length > 0) {
+          companions = g.companions.map(c => (typeof c === 'object' ? c.name : c) || "").join(" ").toLowerCase();
+        }
+        const matchesSearch = name.includes(query) || phone.includes(query) || msg.includes(query) || song.includes(query) || companions.includes(query);
         return matchesFilter && matchesSearch;
       });
 
@@ -544,6 +560,13 @@
 
         const needsTransport = g.needs_transport ? "✅ Yes" : "❌ No";
 
+        let companionsStr = "-";
+        if (Array.isArray(g.companions) && g.companions.length > 0) {
+          companionsStr = g.companions.map(c => (typeof c === 'object' ? c.name : c) || "").filter(Boolean).join(", ");
+        }
+
+        const songText = g.song_request ? `🎵 ${g.song_request}` : "-";
+
         return `
           <tr>
             <td>${index + 1}</td>
@@ -551,6 +574,8 @@
             <td>${g.phone || "-"}</td>
             <td><span class="badge-status ${statusClass}">${statusText}</span></td>
             <td><strong>${g.attendance === "yes" ? (g.guest_count || 1) : "-"}</strong></td>
+            <td class="msg-cell" title="${companionsStr}">${companionsStr}</td>
+            <td class="song-cell" title="${g.song_request || ''}">${songText}</td>
             <td>${needsTransport}</td>
             <td class="msg-cell" title="${g.message || ''}">${g.message || "-"}</td>
             <td style="font-size: 0.85rem; color: #6e745d;">${formattedDate}</td>
@@ -565,16 +590,24 @@
         return;
       }
 
-      const headers = ["Name/Email", "Phone", "Attendance", "Headcount", "Needs Transport", "Message", "Response Date"];
-      const rows = allGuests.map(g => [
-        `"${(g.full_name || g.email || "").replace(/"/g, '""')}"`,
-        `"${(g.phone || "").replace(/"/g, '""')}"`,
-        `"${g.attendance === "yes" ? "Attending" : (g.attendance === "no" ? "Declined" : "Maybe")}"`,
-        `"${g.attendance === "yes" ? (g.guest_count || 1) : 0}"`,
-        `"${g.needs_transport ? "Yes" : "No"}"`,
-        `"${(g.message || "").replace(/"/g, '""')}"`,
-        `"${g.responded_at || g.created_at || ""}"`
-      ]);
+      const headers = ["Name/Email", "Phone", "Attendance", "Headcount", "Companions", "Song Request", "Needs Transport", "Message", "Response Date"];
+      const rows = allGuests.map(g => {
+        let companionsStr = "";
+        if (Array.isArray(g.companions) && g.companions.length > 0) {
+          companionsStr = g.companions.map(c => (typeof c === 'object' ? c.name : c) || "").filter(Boolean).join(", ");
+        }
+        return [
+          `"${(g.full_name || g.email || "").replace(/"/g, '""')}"`,
+          `"${(g.phone || "").replace(/"/g, '""')}"`,
+          `"${g.attendance === "yes" ? "Attending" : (g.attendance === "no" ? "Declined" : "Maybe")}"`,
+          `"${g.attendance === "yes" ? (g.guest_count || 1) : 0}"`,
+          `"${companionsStr.replace(/"/g, '""')}"`,
+          `"${(g.song_request || "").replace(/"/g, '""')}"`,
+          `"${g.needs_transport ? "Yes" : "No"}"`,
+          `"${(g.message || "").replace(/"/g, '""')}"`,
+          `"${g.responded_at || g.created_at || ""}"`
+        ];
+      });
 
       const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
